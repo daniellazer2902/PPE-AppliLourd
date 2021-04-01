@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="GsbLourd.Views.MainPage"
+             x:Class="GsbLourd.Views.ConnexionPage"
              Title="Connexion"
              BackgroundImageSource="https://images-ext-1.discordapp.net/external/TiQrgliBuLcKAaBAcEzv84Qe2SG8jnixVTVwclu5-Co/https/image.freepik.com/vecteurs-libre/fond-ecran-bleu-technologie-futuriste_23-2148498428.jpg">
 
@@ -19,9 +19,11 @@
         <StackLayout BackgroundColor="White" Padding="20" >
             <StackLayout>
                 <Label Text="Identifiant : "/>
-                <Entry/>
+                <Entry Text="{Binding Identifiant}"/>
                 <Label Text="Mot de passe : " />
-                <Entry IsPassword="True"/>
+                <Entry Text="{Binding MotDePasse}" IsPassword="True"/>
+                <Button Text="Se connecter"
+                        Command="{Binding ConnexionCommand}"/>
             </StackLayout>
         </StackLayout>
 

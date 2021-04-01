@@ -19,7 +19,7 @@ namespace GsbLourd
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            await NavigationService.NavigateAsync("NavigationPage/ConnexionPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -27,7 +27,8 @@ namespace GsbLourd
             containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
-            containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+            containerRegistry.RegisterForNavigation<ConnexionPage, ConnexionPageViewModel>();
+            containerRegistry.RegisterForNavigation<RapportVisitePage, RapportVisitePageViewModel>();
         }
     }
 }

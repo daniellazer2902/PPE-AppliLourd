@@ -1,9 +1,9 @@
 ﻿
 namespace GsbLourd.Views
 {
-    public partial class MainPage
+    public partial class RapportVisitePage
     {
-        public MainPage()
+        public RapportVisitePage()
         {
             InitializeComponent();
         }

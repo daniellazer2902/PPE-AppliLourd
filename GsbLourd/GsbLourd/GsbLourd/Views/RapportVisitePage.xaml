@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GsbLourd.Views.RapportVisitePage"
+             Title="Rapport de visite"
+             BackgroundImageSource="https://images-ext-1.discordapp.net/external/TiQrgliBuLcKAaBAcEzv84Qe2SG8jnixVTVwclu5-Co/https/image.freepik.com/vecteurs-libre/fond-ecran-bleu-technologie-futuriste_23-2148498428.jpg">
+
+
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+
+        <Label Text="Rapport de visite"/>
+        <Label Text="{Binding Identifiant}"/>
+        <Label Text="{Binding MotDePasse}"/>
+        <Label Text="{Binding Answer}"/>
+
+
+    </StackLayout>
+
+</ContentPage>
