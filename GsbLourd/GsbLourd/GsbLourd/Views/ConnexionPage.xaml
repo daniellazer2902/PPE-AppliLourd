@@ -18,6 +18,9 @@
 
         <StackLayout BackgroundColor="White" Padding="20" >
             <StackLayout>
+                <Label Text="Il doit y avoir une erreur dans l'identifiant."
+                       TextColor="Red"
+                       IsVisible="{Binding Erreur}"/>
                 <Label Text="Identifiant : "/>
                 <Entry Text="{Binding Identifiant}"/>
                 <Label Text="Mot de passe : " />
