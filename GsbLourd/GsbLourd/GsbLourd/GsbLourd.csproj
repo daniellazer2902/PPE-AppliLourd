@@ -15,6 +15,18 @@
     <Compile Update="Views\ConnexionPage.xaml.cs">
       <DependentUpon>ConnexionPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\AcceuilPage.xaml.cs">
+      <DependentUpon>AcceuilPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\VisiteursPage.xaml.cs">
+      <DependentUpon>VisiteursPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\MedicamentsPage.xaml.cs">
+      <DependentUpon>MedicamentsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\PraticiensPage.xaml.cs">
+      <DependentUpon>PraticiensPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

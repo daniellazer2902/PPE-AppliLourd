@@ -79,10 +79,10 @@ namespace GsbLourd.ViewModels
                         NavigationParameters navigationParameters = new NavigationParameters();
 
 
-                        navigationParameters.Add("motdepasse", MotDePasse);
-                        navigationParameters.Add("identifiant", Identifiant);
+                        navigationParameters.Add("id", (string)Answer["VIS_MATRICULE"]);
+                        navigationParameters.Add("nom", Identifiant);
 
-                        await _navigationService.NavigateAsync("RapportVisitePage", navigationParameters);
+                        await _navigationService.NavigateAsync("AcceuilPage", navigationParameters);
                     }
 
                 }
@@ -109,7 +109,7 @@ namespace GsbLourd.ViewModels
             public string SEC_CODE { get; set; }
             public string LAB_CODE { get; set; }
             public int VIS_CP { get; set; }
-            public string VIS_DATEEMBAUCHE { get; set; }
+            public DateTime VIS_DATEEMBAUCHE { get; set; }
         }
     }
 }
