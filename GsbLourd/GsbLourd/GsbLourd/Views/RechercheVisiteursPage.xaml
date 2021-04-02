@@ -28,7 +28,7 @@
                                 </StackLayout>
                             </StackLayout>
                         </DataTemplate>
-                    </CollectionVie.ItemTemplate>
+                    </CollectionView.ItemTemplate>
                 </CollectionView>
 
             </StackLayout>

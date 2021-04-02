@@ -12,7 +12,7 @@
         <StackLayout Orientation="Horizontal" Margin="5,0,0,30">
             <Label WidthRequest="100">Code</Label>
             <StackLayout BackgroundColor="White">
-                <SearchBar TextChanged="SearchBar_TextChanged"  Text="{Binding Recherche}"/>
+                <SearchBar Text="{Binding Recherche}"/>
                 <AbsoluteLayout Margin="20">
                     <StackLayout>
                         <ListView ItemsSource="{Binding Visiteurs, Mode=TwoWay}">
