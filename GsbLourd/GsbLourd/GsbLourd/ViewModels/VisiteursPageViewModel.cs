@@ -17,24 +17,77 @@ namespace GsbLourd.ViewModels
             _navigationService = navigationService;
             Title = "Rapport de visite Page";
         }
-
-        public string Recherche
+        
+        public string Id
         {
-            get { return _recherche; }
-            set { SetProperty(ref _recherche, value); }
+            get { return _id; }
+            set { SetProperty(ref _id, value); }
         }
-        private string _recherche;
+        private string _id;
 
-        public List<string> Visiteurs
+        public string Nom
         {
-            get { return _visiteurs; }
-            set { SetProperty(ref _visiteurs, value); }
+            get { return _nom; }
+            set { SetProperty(ref _nom, value); }
         }
-        private List<string> _visiteurs;
+        private string _nom;
 
-        public async void SearchVisiteurCommand()
+        public string Prenom
         {
-            Uri uri = new Uri("https://https://hugocabaret.onthewifi.com/GSB/APIGSB/requetes/GetVisisteur.php?RECHERCHE=" + Recherche);
+            get { return _prenom; }
+            set { SetProperty(ref _prenom, value); }
+        }
+        private string _prenom;
+
+        public string Adresse
+        {
+            get { return _adresse; }
+            set { SetProperty(ref _adresse, value); }
+        }
+        private string _adresse;
+
+        public string Cp
+        {
+            get { return _cp; }
+            set { SetProperty(ref _cp, value); }
+        }
+        private string _cp;
+
+        public string Ville
+        {
+            get { return _ville; }
+            set { SetProperty(ref _ville, value); }
+        }
+        private string _ville;
+        
+        public string DateEmbauche
+        {
+            get { return _dateEmbauche; }
+            set { SetProperty(ref _dateEmbauche, value); }
+        }
+        private string _dateEmbauche;
+
+        public string Secteur
+        {
+            get { return _secteur; }
+            set { SetProperty(ref _secteur, value); }
+        }
+        private string _secteur;
+
+        public string Labo
+        {
+            get { return _labo; }
+            set { SetProperty(ref _labo, value); }
+        }
+        private string _labo;
+
+        public async override void OnNavigatedTo(INavigationParameters parameters)
+        {
+            Id = (string)parameters["id"];
+
+            base.OnNavigatedTo(parameters);
+
+            Uri uri = new Uri("https://hugocabaret.onthewifi.com/GSB/APIGSB/requetes/GetVisisteur.php?VIS_MATRICULE=" + Id);
             Console.WriteLine("{0} URI", uri);
 
             HttpResponseMessage response = await _client.GetAsync(uri);
@@ -43,15 +96,17 @@ namespace GsbLourd.ViewModels
                 var answer = await response.Content.ReadAsStringAsync();
 
                 var Answer = JObject.Parse(answer);
-
-                Visiteurs.Clear();
-
-                foreach (JObject visiteur in Visiteurs)
-                {
-                    Visiteurs.Add((string)visiteur["VIS_NOM"] + (string)visiteur["VIS_PRENOM"]);
-                }
-
+                Nom = (string)Answer["VIS_NOM"];
+                Prenom = (string)Answer["VIS_PRENOM"];
+                Adresse = (string)Answer["VIS_ADRESSE"];
+                Cp = (string)Answer["VIS_CP"];
+                Ville = (string)Answer["VIS_VILLE"];
+                DateEmbauche = (string)Answer["VIS_DATEEMBAUCHE"];
+                Secteur = (string)Answer["SEC_CODE"];
+                Labo = (string)Answer["LAB_CODE"];
             }
+
         }
+
     }
 }

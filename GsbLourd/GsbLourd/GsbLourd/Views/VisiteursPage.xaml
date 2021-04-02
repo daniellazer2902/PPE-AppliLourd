@@ -8,27 +8,67 @@
 
     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
 
-        <!--RECHERCHE-->
+        <!--Prenom-->
         <StackLayout Orientation="Horizontal" Margin="5,0,0,30">
-            <Label WidthRequest="100">Code</Label>
+            <Label WidthRequest="100">Prenom</Label>
             <StackLayout BackgroundColor="White">
-                <SearchBar Text="{Binding Recherche}"/>
-                <AbsoluteLayout Margin="20">
-                    <StackLayout>
-                        <ListView ItemsSource="{Binding Visiteurs, Mode=TwoWay}">
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <StackLayout Orientation="Horizontal" Margin="5,0,0,30">
-                                        <Label WidthRequest="100">Nom commerciale</Label>
-                                        <StackLayout BackgroundColor="White">
-                                            <Label WidthRequest="100" Text="{Binding Visiteur}"/>
-                                        </StackLayout>
-                                    </StackLayout>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
-                    </StackLayout>
-                </AbsoluteLayout>
+                <Label WidthRequest="100" Text="{Binding Prenom}"/>
+            </StackLayout>
+        </StackLayout>
+
+        <!--NOM-->
+        <StackLayout Orientation="Horizontal" Margin="5,0,0,30">
+            <Label WidthRequest="100">Nom</Label>
+            <StackLayout BackgroundColor="White">
+                <Label WidthRequest="100" Text="{Binding Nom}"/>
+            </StackLayout>
+        </StackLayout>
+
+        <!--Adresse-->
+        <StackLayout Orientation="Horizontal" Margin="5,0,0,30">
+            <Label WidthRequest="100">Adresse</Label>
+            <StackLayout BackgroundColor="White">
+                <Label WidthRequest="200" Text="{Binding Adresse}"/>
+            </StackLayout>
+        </StackLayout>
+
+        <!--Code postal-->
+        <StackLayout Orientation="Horizontal" Margin="5,0,0,30">
+            <Label WidthRequest="100">Code postal</Label>
+            <StackLayout BackgroundColor="White">
+                <Label WidthRequest="200" Text="{Binding Cp}"/>
+            </StackLayout>
+        </StackLayout>
+
+        <!--Ville-->
+        <StackLayout Orientation="Horizontal" Margin="5,0,0,30">
+            <Label WidthRequest="100">Ville</Label>
+            <StackLayout BackgroundColor="White">
+                <Label WidthRequest="200" Text="{Binding Ville}"/>
+            </StackLayout>
+        </StackLayout>
+
+        <!--DateEmbauche-->
+        <StackLayout Orientation="Horizontal" Margin="5,0,0,30">
+            <Label WidthRequest="100">Date d'embauche</Label>
+            <StackLayout WidthRequest="280" BackgroundColor="White">
+                <Label WidthRequest="200" Text="{Binding DateEmbauche}"/>
+            </StackLayout>
+        </StackLayout>
+
+        <!--Secteur-->
+        <StackLayout Orientation="Horizontal" Margin="5,0,0,30">
+            <Label WidthRequest="100">Secteur</Label>
+            <StackLayout WidthRequest="280" BackgroundColor="White">
+                <Label WidthRequest="200" Text="{Binding Secteur}"/>
+            </StackLayout>
+        </StackLayout>
+
+        <!--Labo-->
+        <StackLayout Orientation="Horizontal" Margin="5,0,0,30">
+            <Label WidthRequest="100">Laboratoire</Label>
+            <StackLayout BackgroundColor="White">
+                <Label WidthRequest="200" Text="{Binding Labo}"/>
             </StackLayout>
         </StackLayout>
 
