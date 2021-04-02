@@ -6,9 +6,68 @@
              BackgroundImageSource="https://images-ext-1.discordapp.net/external/TiQrgliBuLcKAaBAcEzv84Qe2SG8jnixVTVwclu5-Co/https/image.freepik.com/vecteurs-libre/fond-ecran-bleu-technologie-futuriste_23-2148498428.jpg">
 
 
-    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+    <StackLayout VerticalOptions="CenterAndExpand">
 
+        <!--CODE-->
+        <StackLayout Orientation="Horizontal" Margin="5,0,0,30">
+            <Label WidthRequest="100">Code</Label>
+            <StackLayout BackgroundColor="White">
+                <Label WidthRequest="100" Text="{Binding Code}"/>
+            </StackLayout>
+        </StackLayout>
+        
+        <!--NOM COMMERCIALE-->
+        <StackLayout Orientation="Horizontal" Margin="5,0,0,30">
+            <Label WidthRequest="100">Nom commerciale</Label>
+            <StackLayout BackgroundColor="White">
+                <Label WidthRequest="100" Text="{Binding Nom}"/>
+            </StackLayout>
+        </StackLayout>
 
+        <!--FAMILLE-->
+        <StackLayout Orientation="Horizontal" Margin="5,0,0,30">
+            <Label WidthRequest="100">Famille</Label>
+            <StackLayout BackgroundColor="White">
+                <Label WidthRequest="200" Text="{Binding Famille}"/>
+            </StackLayout>
+        </StackLayout>
+
+        <!--COMPOSITION-->
+        <StackLayout Orientation="Horizontal" Margin="5,0,0,30">
+            <Label WidthRequest="100">Composition</Label>
+            <StackLayout BackgroundColor="White">
+                <Label WidthRequest="200" Text="{Binding Composition}"/>
+            </StackLayout>
+        </StackLayout>
+
+        <!--EFFET-->
+        <StackLayout Orientation="Horizontal" Margin="5,0,0,30">
+            <Label WidthRequest="100">Effetes indésirables</Label>
+            <StackLayout WidthRequest="280" BackgroundColor="White">
+                <Label WidthRequest="200" Text="{Binding Effet}"/>
+            </StackLayout>
+        </StackLayout>
+
+        <!--CONRE INDICATION-->
+        <StackLayout Orientation="Horizontal" Margin="5,0,0,30">
+            <Label WidthRequest="100">Contre indication</Label>
+            <StackLayout WidthRequest="280" BackgroundColor="White">
+                <Label WidthRequest="200" Text="{Binding ContreIndication}"/>
+            </StackLayout>
+        </StackLayout>
+
+        <!--PRIX-->
+        <StackLayout Orientation="Horizontal" Margin="5,0,0,30">
+            <Label WidthRequest="100">Pris echantillon</Label>
+            <StackLayout BackgroundColor="White">
+                <Label WidthRequest="200" Text="{Binding Prix}"/>
+            </StackLayout>
+        </StackLayout>
+
+        <StackLayout Margin="40,0,0,0" HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+            <Button Text="Précédent" Command="{Binding Precedent}"/>
+            <Button Text="Suivant" Command="{Binding Suivant}"/>
+        </StackLayout>
 
     </StackLayout>
 
