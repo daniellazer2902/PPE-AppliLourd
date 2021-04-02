@@ -1,7 +1,10 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Prism.Commands;
 using Prism.Navigation;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Net.Http;
 
 namespace GsbLourd.ViewModels
@@ -25,39 +28,91 @@ namespace GsbLourd.ViewModels
         }
         private string _recherche;
 
-        public List<Visiteur> Visiteurs
+        public Visiteur SelectedItem
+        {
+            get { return _selectedItem; }
+            set { SetProperty(ref _selectedItem, value); }
+        }
+        private Visiteur _selectedItem;
+
+        public ObservableCollection<Visiteur> Visiteurs
         {
             get { return _visiteurs; }
             set { SetProperty(ref _visiteurs, value); }
         }
-        private List<Visiteur> _visiteurs;
+        private ObservableCollection<Visiteur> _visiteurs;
 
-        public async void SearchVisiteurCommand()
+        public DelegateCommand SearchVisiteurCommand
         {
-            Uri uri = new Uri("https://https://hugocabaret.onthewifi.com/GSB/APIGSB/requetes/GetVisisteur.php?RECHERCHE=" + Recherche);
-            Console.WriteLine("{0} URI", uri);
+            get { return _searchVisiteurCommand ?? (_searchVisiteurCommand = new DelegateCommand(ExecuteSearchVisiteurCommand, CanExecuteSearchVisiteurCommand)); }
+        }
+        private DelegateCommand _searchVisiteurCommand;
 
-            HttpResponseMessage response = await _client.GetAsync(uri);
-            if (response.IsSuccessStatusCode)
+        public async void ExecuteSearchVisiteurCommand()
+        {
+            try
             {
-                var answer = await response.Content.ReadAsStringAsync();
+                Visiteurs = new ObservableCollection<Visiteur>();
 
-                var Answer = JObject.Parse(answer);
+                Uri uri = new Uri("https://hugocabaret.onthewifi.com/GSB/APIGSB/requetes/GetVisisteur.php?RECHERCHE=" + Recherche);
+                Console.WriteLine("{0} URI", uri);
 
-                Visiteurs.Clear();
-
-                foreach (JObject visiteur in Answer[0])
+                HttpResponseMessage response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
                 {
-                    Visiteur _visiteur = new Visiteur();
+                    Console.WriteLine("Test 1");
+                    var answer = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine("{0} Test 2", answer);
 
-                    _visiteur.Nom = (string)visiteur["VIS_NOM"];
-                    _visiteur.Prenom = (string)visiteur["VIS_PRENOM"];
-                    _visiteur.Id = (string)visiteur["VIS_MATRICULE"];
+                    Console.WriteLine("Test 3");
+                    dynamic dynJson = JsonConvert.DeserializeObject(answer);
 
-                    Visiteurs.Add(_visiteur);
+                    Console.WriteLine("{0} Test 3", dynJson);
+
+                    foreach (var visiteur in dynJson)
+                    {
+
+                        Console.WriteLine("{0} JSON", visiteur.VIS_NOM);
+                        Visiteur _visiteur = new Visiteur();
+
+                        Console.WriteLine("{0} NOM", visiteur.VIS_NOM);
+                        _visiteur.Nom = visiteur.VIS_NOM;
+                        _visiteur.Prenom = visiteur.VIS_PRENOM;
+                        _visiteur.Id = visiteur.VIS_MATRICULE;
+
+                        Visiteurs.Add(_visiteur);
+                    }
+
                 }
-
+            }catch(Exception e)
+            {
+                Console.WriteLine("Erreur, la recherche est vide");
             }
+        }
+        public virtual bool CanExecuteSearchVisiteurCommand()
+        {
+            return true;
+        }
+
+        
+        //NAVIGATE TO THE RESULT
+        public DelegateCommand NavigateRechercheResultCommand
+        {
+            get { return _navigateRechercheResultCommand ?? (_navigateRechercheResultCommand = new DelegateCommand(ExecuteNavigateRechercheResultCommand, CanExecuteNavigateRechercheResultCommand)); }
+        }
+        private DelegateCommand _navigateRechercheResultCommand;
+
+        public async void ExecuteNavigateRechercheResultCommand()
+        {
+            NavigationParameters navigationParameters = new NavigationParameters();
+
+            navigationParameters.Add("id", SelectedItem.Id);
+
+            await _navigationService.NavigateAsync("VisiteursPage", navigationParameters);
+        }
+        public virtual bool CanExecuteNavigateRechercheResultCommand()
+        {
+            return true;
         }
 
         public class Visiteur

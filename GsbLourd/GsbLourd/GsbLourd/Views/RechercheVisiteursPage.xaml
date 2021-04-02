@@ -10,11 +10,10 @@
 
         <!--RECHERCHE-->
         <StackLayout Orientation="Horizontal" Margin="5,0,0,30">
-            <Label WidthRequest="100">Code</Label>
             <StackLayout BackgroundColor="White">
                 <StackLayout>
                     <SearchBar Text="{Binding Recherche}"/>
-                    <Button Command="{Binding SearchCommand}"/>
+                    <Button Command="{Binding SearchVisiteurCommand}" Text="Chercher"/>
                 </StackLayout>
 
 
@@ -22,9 +21,9 @@
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <StackLayout Orientation="Horizontal" Margin="5,0,0,30">
-                                <Label WidthRequest="100">Nom commerciale</Label>
-                                <StackLayout BackgroundColor="White">
-                                    <Label WidthRequest="100" Text="{Binding Visiteur}"/>
+                                <StackLayout BackgroundColor="LightGray" Orientation="Horizontal" VerticalOptions="CenterAndExpand" Margin="10,0,0,0" Padding="10" HorizontalOptions="CenterAndExpand">
+                                    <Label WidthRequest="100" Text="{Binding Nom}" HorizontalTextAlignment="Center"/>
+                                    <Label WidthRequest="100" Text="{Binding Prenom}" HorizontalTextAlignment="Center"/>
                                 </StackLayout>
                             </StackLayout>
                         </DataTemplate>
