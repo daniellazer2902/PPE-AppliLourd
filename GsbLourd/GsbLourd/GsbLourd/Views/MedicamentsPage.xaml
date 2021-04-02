@@ -5,7 +5,7 @@
              Title="Medicaments"
              BackgroundImageSource="https://images-ext-1.discordapp.net/external/TiQrgliBuLcKAaBAcEzv84Qe2SG8jnixVTVwclu5-Co/https/image.freepik.com/vecteurs-libre/fond-ecran-bleu-technologie-futuriste_23-2148498428.jpg">
 
-
+    <ScrollView>
     <StackLayout VerticalOptions="CenterAndExpand">
 
         <!--CODE-->
@@ -70,5 +70,5 @@
         </StackLayout>
 
     </StackLayout>
-
+    </ScrollView>
 </ContentPage>
