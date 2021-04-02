@@ -6,11 +6,11 @@ using System.Net.Http;
 
 namespace GsbLourd.ViewModels
 {
-    public class VisiteursPageViewModel : ViewModelBase
+    public class RechercheVisiteursPageViewModel : ViewModelBase
     {
         private readonly HttpClient _client;
         private readonly INavigationService _navigationService;
-        public VisiteursPageViewModel(INavigationService navigationService)
+        public RechercheVisiteursPageViewModel(INavigationService navigationService)
             : base(navigationService)
         {
             _client = new HttpClient();
@@ -25,12 +25,12 @@ namespace GsbLourd.ViewModels
         }
         private string _recherche;
 
-        public List<string> Visiteurs
+        public List<Visiteur> Visiteurs
         {
             get { return _visiteurs; }
             set { SetProperty(ref _visiteurs, value); }
         }
-        private List<string> _visiteurs;
+        private List<Visiteur> _visiteurs;
 
         public async void SearchVisiteurCommand()
         {
@@ -46,12 +46,25 @@ namespace GsbLourd.ViewModels
 
                 Visiteurs.Clear();
 
-                foreach (JObject visiteur in Visiteurs)
+                foreach (JObject visiteur in Answer[0])
                 {
-                    Visiteurs.Add((string)visiteur["VIS_NOM"] + (string)visiteur["VIS_PRENOM"]);
+                    Visiteur _visiteur = new Visiteur();
+
+                    _visiteur.Nom = (string)visiteur["VIS_NOM"];
+                    _visiteur.Prenom = (string)visiteur["VIS_PRENOM"];
+                    _visiteur.Id = (string)visiteur["VIS_MATRICULE"];
+
+                    Visiteurs.Add(_visiteur);
                 }
 
             }
+        }
+
+        public class Visiteur
+        {
+            public string Nom { get; set; }
+            public string Prenom { get; set; }
+            public string Id { get; set; }
         }
     }
 }

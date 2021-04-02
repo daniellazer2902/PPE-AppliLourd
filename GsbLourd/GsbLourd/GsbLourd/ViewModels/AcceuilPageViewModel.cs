@@ -74,7 +74,7 @@ namespace GsbLourd.ViewModels
             navigationParameters.Add("id", Id);
             navigationParameters.Add("nom", Nom);
 
-            await _navigationService.NavigateAsync("VisiteursPage", navigationParameters);
+            await _navigationService.NavigateAsync("RechercheVisiteursPage", navigationParameters);
         }
         public virtual bool CanExecuteVisiteursCommand()
         {

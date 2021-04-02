@@ -8,7 +8,29 @@
 
     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
 
-
+        <!--RECHERCHE-->
+        <StackLayout Orientation="Horizontal" Margin="5,0,0,30">
+            <Label WidthRequest="100">Code</Label>
+            <StackLayout BackgroundColor="White">
+                <SearchBar TextChanged="SearchBar_TextChanged"  Text="{Binding Recherche}"/>
+                <AbsoluteLayout Margin="20">
+                    <StackLayout>
+                        <ListView ItemsSource="{Binding Visiteurs, Mode=TwoWay}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout Orientation="Horizontal" Margin="5,0,0,30">
+                                        <Label WidthRequest="100">Nom commerciale</Label>
+                                        <StackLayout BackgroundColor="White">
+                                            <Label WidthRequest="100" Text="{Binding Visiteur}"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                </AbsoluteLayout>
+            </StackLayout>
+        </StackLayout>
 
     </StackLayout>
 
