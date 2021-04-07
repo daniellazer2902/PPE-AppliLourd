@@ -4,6 +4,7 @@ using Prism.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace GsbLourd.ViewModels
 {
@@ -19,43 +20,99 @@ namespace GsbLourd.ViewModels
             Title = "Rapport de visite Page";
         }
 
-        public String Identifiant
+        public string Id
         {
-            get { return _identifiant; }
-            set { SetProperty(ref _identifiant, value); }
+            get { return _id; }
+            set { SetProperty(ref _id, value); }
         }
-        private String _identifiant;
+        private string _id;
 
-        public String MotDePasse
+        public string Nom
         {
-            get { return _motDePasse; }
-            set { SetProperty(ref _motDePasse, value); }
+            get { return _nom; }
+            set { SetProperty(ref _nom, value); }
         }
-        private String _motDePasse;
+        private string _nom;
 
-        public String Answer
+        public string RapportId
         {
-            get { return _answer; }
-            set { SetProperty(ref _answer, value); }
+            get { return _rapportId; }
+            set { SetProperty(ref _rapportId, value); }
         }
-        private String _answer;
+        private string _rapportId;
+
+        public string Motif
+        {
+            get { return _motif; }
+            set { SetProperty(ref _motif, value); }
+        }
+        private string _motif;
+
+        public string Bilan
+        {
+            get { return _bilan; }
+            set { SetProperty(ref _bilan, value); }
+        }
+        private string _bilan;
+
+        public string PraticienId
+        {
+            get { return _praticienId; }
+            set { SetProperty(ref _praticienId, value); }
+        }
+        private string _praticienId;
+
+        public string Praticien
+        {
+            get { return _praticien; }
+            set { SetProperty(ref _praticien, value); }
+        }
+        private string _praticien;
+
+        public string RapportDate
+        {
+            get { return _rapportDate; }
+            set { SetProperty(ref _rapportDate, value); }
+        }
+        private string _rapportDate;
+
+        public string VisiteurId
+        {
+            get { return _visiteurId; }
+            set { SetProperty(ref _visiteurId, value); }
+        }
+        private string _visiteurId;
 
         public async override void OnNavigatedTo(INavigationParameters parameters)
         {
-            Uri uri = new Uri("https://hugocabaret.onthewifi.com/GSB/APIGSB/requetes/Connexion.php?VIS_NOM=Villechalane");
-            
-            HttpResponseMessage response = await _client.GetAsync(uri);
-            if (response.IsSuccessStatusCode)
-            {
-                Answer = await response.Content.ReadAsStringAsync();
-
-            }
-
-            MotDePasse = (string)parameters["motdepasse"];
-            Identifiant = (string)parameters["identifiant"];
+            Id = (string)parameters["id"];
+            Nom = (string)parameters["nom"];
 
             base.OnNavigatedTo(parameters);
 
+        }
+
+        public DelegateCommand CreationRapportVisite
+        {
+            get { return _creationRapportVisite ?? (_creationRapportVisite = new DelegateCommand(ExecuteCreationRapportVisite, CanExecuteCreationRapportVisite)); }
+        }
+        private DelegateCommand _creationRapportVisite;
+
+        public async void ExecuteCreationRapportVisite()
+        {
+            Uri uri = new Uri("https://hugocabaret.onthewifi.com/GSB/APIGSB/requetes/RapportDeVisite/InsertRapportDeVisite.php?RAP_MOTIF=" + Motif + "&VIS_MATRICULE=" + Id + "&PRA_NUM=" + PraticienId + "&RAP_DATE=" + RapportDate + "&RAP_BILAN=" + Bilan);
+
+            HttpResponseMessage response = await _client.GetAsync(uri);
+            if (response.IsSuccessStatusCode)
+            {
+
+                await _navigationService.NavigateAsync("RapportVisitePage");
+
+            }
+        }
+        public virtual bool CanExecuteCreationRapportVisite()
+        {
+            return true;
         }
     }
 }

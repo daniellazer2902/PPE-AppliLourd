@@ -12,9 +12,9 @@
             
             <!--NOM-->
             <StackLayout Orientation="Horizontal" Margin="5,0,0,30">
-                <Label WidthRequest="100">Numero de rapport : </Label>
+                <Label WidthRequest="150">Numero de rapport : </Label>
                 <StackLayout BackgroundColor="White">
-                    <Label WidthRequest="100" Text="{Binding RapportNum}"/>
+                    <Label WidthRequest="50" Text="{Binding RapportId}"/>
                 </StackLayout>
             </StackLayout>
 
@@ -30,7 +30,7 @@
             <StackLayout Orientation="Horizontal" Margin="5,0,0,30">
                 <Label WidthRequest="100">Medecin :</Label>
                 <StackLayout BackgroundColor="White">
-                    <Label WidthRequest="100" Text="{Binding Praticien}"/>
+                    <Label WidthRequest="200" Text="{Binding Praticien}"/>
                 </StackLayout>
             </StackLayout>
 

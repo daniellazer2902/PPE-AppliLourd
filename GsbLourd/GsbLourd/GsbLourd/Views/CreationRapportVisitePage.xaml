@@ -9,53 +9,40 @@
 
         <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
 
-            <!--NOM-->
-            <StackLayout Orientation="Horizontal" Margin="5,0,0,30">
-                <Label WidthRequest="100">Numero de rapport :</Label>
-                <StackLayout BackgroundColor="White">
-                    <Label WidthRequest="100" Text="{Binding RapportNum}"/>
-                </StackLayout>
-            </StackLayout>
-
-            <!--Adresse-->
-            <StackLayout Orientation="Horizontal" Margin="5,0,0,30">
+            <!--Date-->
+            <StackLayout Margin="5,0,0,30">
                 <Label WidthRequest="100">Date :</Label>
                 <StackLayout BackgroundColor="White">
-                    <Label WidthRequest="200" Text="{Binding RapportDate}"/>
+                    <Entry Text="{Binding RapportDate}"/>
                 </StackLayout>
             </StackLayout>
 
-            <!--Prenom-->
-            <StackLayout Orientation="Horizontal" Margin="5,0,0,30">
+            <!--Pratidien-->
+            <StackLayout Margin="5,0,0,30">
                 <Label WidthRequest="100">Medecin :</Label>
                 <StackLayout BackgroundColor="White">
-                    <Label WidthRequest="100" Text="{Binding PraticienId}"/>
+                    <Entry WidthRequest="100" Text="{Binding PraticienId}"/>
                 </StackLayout>
             </StackLayout>
 
-            <!--Code postal-->
-            <StackLayout Orientation="Horizontal" Margin="5,0,0,30">
+            <!--Bilan-->
+            <StackLayout Margin="5,0,0,30">
                 <Label WidthRequest="100">Bilan :</Label>
                 <StackLayout BackgroundColor="White">
-                    <Label WidthRequest="200" Text="{Binding Bilan}"/>
+                    <Entry Text="{Binding Bilan}"/>
                 </StackLayout>
             </StackLayout>
 
-            <!--Ville-->
-            <StackLayout Orientation="Horizontal" Margin="5,0,0,30">
+            <!--Motif-->
+            <StackLayout Margin="5,0,0,30">
                 <Label WidthRequest="100">Motif :</Label>
                 <StackLayout BackgroundColor="White">
-                    <Label WidthRequest="200" Text="{Binding Motif}"/>
+                    <Entry Text="{Binding Motif}"/>
                 </StackLayout>
             </StackLayout>
 
-
             <StackLayout Margin="40,0,0,0" HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
-                <Button Text="Précédent" Command="{Binding Precedent}" IsVisible="{Binding IsFirst}"/>
-                <Button Text="Suivant" Command="{Binding Suivant}"/>
-            </StackLayout>
-            <StackLayout Margin="40,0,0,0" HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
-                <Button Text="Créer un nouveau rapport" Command="{Binding NavigateCreerRapportCommand}"/>
+                <Button Text="Créer" Command="{Binding CreationRapportVisite}"/>
             </StackLayout>
 
         </StackLayout>
