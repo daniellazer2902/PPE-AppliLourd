@@ -1,9 +1,9 @@
 ﻿
 namespace GsbLourd.Views
 {
-    public partial class RecherchePraticiensPage
+    public partial class RechercheVisiteursPage
     {
-        public RecherchePraticiensPage()
+        public RechercheVisiteursPage()
         {
             InitializeComponent();
         }

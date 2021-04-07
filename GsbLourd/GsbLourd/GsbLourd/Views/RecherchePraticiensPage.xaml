@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GsbLourd.Views.RecherchePraticiensPage"
+             Title="Praticiens"
+             BackgroundImageSource="https://images-ext-1.discordapp.net/external/TiQrgliBuLcKAaBAcEzv84Qe2SG8jnixVTVwclu5-Co/https/image.freepik.com/vecteurs-libre/fond-ecran-bleu-technologie-futuriste_23-2148498428.jpg">
+
+
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+
+        <!--RECHERCHE-->
+        <StackLayout Orientation="Horizontal" Margin="5,0,0,30">
+            <StackLayout BackgroundColor="White">
+                <StackLayout>
+                    <SearchBar Text="{Binding Recherche}"/>
+                    <Button Command="{Binding SearchPraticiensCommand}" Text="Chercher"/>
+                </StackLayout>
+
+
+                <CollectionView ItemsSource="{Binding Praticiens, Mode=TwoWay}" BackgroundColor="Transparent" SelectedItem="{Binding SelectedItem}" SelectionMode="Single" SelectionChangedCommand="{Binding NavigateRechercheResultCommand}" >
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Orientation="Horizontal" Margin="5,0,0,30">
+                                <StackLayout BackgroundColor="LightGray" Orientation="Horizontal" VerticalOptions="CenterAndExpand" Margin="10,0,0,0" Padding="10" HorizontalOptions="CenterAndExpand">
+                                    <Label WidthRequest="100" Text="{Binding Nom}" HorizontalTextAlignment="Center"/>
+                                    <Label WidthRequest="100" Text="{Binding Prenom}" HorizontalTextAlignment="Center"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </StackLayout>
+        </StackLayout>
+
+    </StackLayout>
+
+</ContentPage>

@@ -32,6 +32,7 @@ namespace GsbLourd
             containerRegistry.RegisterForNavigation<AcceuilPage, AcceuilPageViewModel>();
             containerRegistry.RegisterForNavigation<VisiteursPage, VisiteursPageViewModel>();
             containerRegistry.RegisterForNavigation<RechercheVisiteursPage, RechercheVisiteursPageViewModel>();
+            containerRegistry.RegisterForNavigation<RecherchePraticiensPage, RecherchePraticiensPageViewModel>();
             containerRegistry.RegisterForNavigation<MedicamentsPage, MedicamentsPageViewModel>();
             containerRegistry.RegisterForNavigation<PraticiensPage, PraticiensPageViewModel>();
         }

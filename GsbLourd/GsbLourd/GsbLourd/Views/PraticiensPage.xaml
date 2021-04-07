@@ -8,7 +8,61 @@
 
     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
 
+        <!--Prenom-->
+        <StackLayout Orientation="Horizontal" Margin="5,0,0,30">
+            <Label WidthRequest="100">Prenom</Label>
+            <StackLayout BackgroundColor="White">
+                <Label WidthRequest="100" Text="{Binding Prenom}"/>
+            </StackLayout>
+        </StackLayout>
 
+        <!--NOM-->
+        <StackLayout Orientation="Horizontal" Margin="5,0,0,30">
+            <Label WidthRequest="100">Nom</Label>
+            <StackLayout BackgroundColor="White">
+                <Label WidthRequest="100" Text="{Binding Nom}"/>
+            </StackLayout>
+        </StackLayout>
+
+        <!--Adresse-->
+        <StackLayout Orientation="Horizontal" Margin="5,0,0,30">
+            <Label WidthRequest="100">Adresse</Label>
+            <StackLayout BackgroundColor="White">
+                <Label WidthRequest="200" Text="{Binding Adresse}"/>
+            </StackLayout>
+        </StackLayout>
+
+        <!--Code postal-->
+        <StackLayout Orientation="Horizontal" Margin="5,0,0,30">
+            <Label WidthRequest="100">Code postal</Label>
+            <StackLayout BackgroundColor="White">
+                <Label WidthRequest="200" Text="{Binding Cp}"/>
+            </StackLayout>
+        </StackLayout>
+
+        <!--Ville-->
+        <StackLayout Orientation="Horizontal" Margin="5,0,0,30">
+            <Label WidthRequest="100">Ville</Label>
+            <StackLayout BackgroundColor="White">
+                <Label WidthRequest="200" Text="{Binding Ville}"/>
+            </StackLayout>
+        </StackLayout>
+
+        <!--Secteur-->
+        <StackLayout Orientation="Horizontal" Margin="5,0,0,30">
+            <Label WidthRequest="100">Coeficient de notoriété</Label>
+            <StackLayout WidthRequest="280" BackgroundColor="White">
+                <Label WidthRequest="200" Text="{Binding Coef}"/>
+            </StackLayout>
+        </StackLayout>
+
+        <!--Labo-->
+        <StackLayout Orientation="Horizontal" Margin="5,0,0,30">
+            <Label WidthRequest="100">Type</Label>
+            <StackLayout BackgroundColor="White">
+                <Label WidthRequest="200" Text="{Binding Type}"/>
+            </StackLayout>
+        </StackLayout>
 
     </StackLayout>
 

@@ -116,7 +116,7 @@ namespace GsbLourd.ViewModels
             navigationParameters.Add("id", Id);
             navigationParameters.Add("nom", Nom);
 
-            await _navigationService.NavigateAsync("PraticiensPage", navigationParameters);
+            await _navigationService.NavigateAsync("RecherchePraticiensPage", navigationParameters);
         }
         public virtual bool CanExecutePraticiensCommand()
         {
