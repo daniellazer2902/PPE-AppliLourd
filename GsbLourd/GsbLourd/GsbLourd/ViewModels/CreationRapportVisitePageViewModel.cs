@@ -105,8 +105,12 @@ namespace GsbLourd.ViewModels
             HttpResponseMessage response = await _client.GetAsync(uri);
             if (response.IsSuccessStatusCode)
             {
+                NavigationParameters navigationParameters = new NavigationParameters();
 
-                await _navigationService.NavigateAsync("RapportVisitePage");
+                navigationParameters.Add("id", Id);
+                navigationParameters.Add("nom", Nom);
+
+                await _navigationService.NavigateAsync("RapportVisitePage", navigationParameters);
 
             }
         }
