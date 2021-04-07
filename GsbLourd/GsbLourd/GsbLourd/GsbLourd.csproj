@@ -25,6 +25,9 @@
     <Compile Update="Views\AcceuilPage.xaml.cs">
       <DependentUpon>AcceuilPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\CreationRapportVisitePage.xaml.cs">
+      <DependentUpon>CreationRapportVisitePage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\RecherchePraticiensPage.xaml.cs">
       <DependentUpon>RecherchePraticiensPage.xaml</DependentUpon>
     </Compile>

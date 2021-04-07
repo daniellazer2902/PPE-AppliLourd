@@ -133,7 +133,7 @@ namespace GsbLourd.ViewModels
 
         public async void ExecutePrecedent()
         {
-            Numero++;
+            Numero--;
             RecupMedicament();
         }
 

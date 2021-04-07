@@ -1,18 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="GsbLourd.Views.RapportVisitePage"
-             Title="Mes rapports de visite"
+             x:Class="GsbLourd.Views.CreationRapportVisitePage"
+             Title="Créer un nouveau rapports de visite"
              BackgroundImageSource="https://images-ext-1.discordapp.net/external/TiQrgliBuLcKAaBAcEzv84Qe2SG8jnixVTVwclu5-Co/https/image.freepik.com/vecteurs-libre/fond-ecran-bleu-technologie-futuriste_23-2148498428.jpg">
 
     <ScrollView>
 
         <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
 
-            
             <!--NOM-->
             <StackLayout Orientation="Horizontal" Margin="5,0,0,30">
-                <Label WidthRequest="100">Numero de rapport : </Label>
+                <Label WidthRequest="100">Numero de rapport :</Label>
                 <StackLayout BackgroundColor="White">
                     <Label WidthRequest="100" Text="{Binding RapportNum}"/>
                 </StackLayout>
@@ -30,13 +29,13 @@
             <StackLayout Orientation="Horizontal" Margin="5,0,0,30">
                 <Label WidthRequest="100">Medecin :</Label>
                 <StackLayout BackgroundColor="White">
-                    <Label WidthRequest="100" Text="{Binding Praticien}"/>
+                    <Label WidthRequest="100" Text="{Binding PraticienId}"/>
                 </StackLayout>
             </StackLayout>
 
             <!--Code postal-->
             <StackLayout Orientation="Horizontal" Margin="5,0,0,30">
-                <Label WidthRequest="100">Bilan : </Label>
+                <Label WidthRequest="100">Bilan :</Label>
                 <StackLayout BackgroundColor="White">
                     <Label WidthRequest="200" Text="{Binding Bilan}"/>
                 </StackLayout>
@@ -60,7 +59,7 @@
             </StackLayout>
 
         </StackLayout>
-        
+
     </ScrollView>
 
 
